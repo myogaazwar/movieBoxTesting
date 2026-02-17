@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class BasePage {
     public static WebDriver driver;
@@ -16,7 +19,15 @@ public class BasePage {
     }
 
     protected WebElement find(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return BasePage.wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected WebElement findWithoutWait(By locator) {
+        return BasePage.driver.findElement(locator);
+    }
+
+    protected List<WebElement> findAll(By locator) {
+        return BasePage.wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
     protected void set(By locator, String text) {
@@ -26,6 +37,10 @@ public class BasePage {
 
     protected void click(By locator) {
         find(locator).click();
+    }
+
+    protected void waitElementUntilGone(By locator) {
+        BasePage.wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
     public static void delay(int milliseconds) {

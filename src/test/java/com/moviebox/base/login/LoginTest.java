@@ -1,10 +1,13 @@
 package com.moviebox.base.login;
 
+import ExtentManager.ExtentTestListener;
 import com.moviebox.base.BaseTest;
 import com.moviebox.pages.MoviesPage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ExtentTestListener.class)
 public class LoginTest extends BaseTest {
 
     @Test(priority = 1)
@@ -63,10 +66,13 @@ public class LoginTest extends BaseTest {
     @Test(priority = 5)
     public void testSuccessLogin() {
        MoviesPage moviesPage = loginPage.logIntoApplication("yoga", "12345");
-       String titleHeaderMoviesPage = moviesPage.isTitleHeaderMoviesPageDisplayed();
+       String titleHeaderMoviesPage = moviesPage.isTitleHeaderMoviesPageDisplayed().getText();
+        boolean isTitleHeaderMovieDisplay = moviesPage.isTitleHeaderMoviesPageDisplayed().isDisplayed();
 
        String expectedTitleHeaderMoviesPage = "Daftar Film";
        Assert.assertEquals(titleHeaderMoviesPage, expectedTitleHeaderMoviesPage);
+
+       Assert.assertTrue(isTitleHeaderMovieDisplay);
     }
 
 }

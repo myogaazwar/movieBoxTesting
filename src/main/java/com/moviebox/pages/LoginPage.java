@@ -2,6 +2,7 @@ package com.moviebox.pages;
 
 import com.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
     private final By descriptionLoginPage = By.cssSelector("body > main > section > div > div.text-center > h2");
@@ -42,9 +43,9 @@ public class LoginPage extends BasePage {
 
     public MoviesPage logIntoApplication (String username, String password) {
         sendInputLogin(username, password);
-        clickButtonLogin();
-
+         clickButtonLogin();
         return new MoviesPage();
+
     }
 
 
