@@ -16,7 +16,7 @@ Automation testing dibuat berdasarkan test scenario dan test case yang telah dis
 👉 [https://github.com/username/moviebox-laravel  ](https://github.com/myogaazwar/Movie-Box-Laravel.git)
 
 📁 **Test Scenario & Test Case:**  
-👉 [`MovieBox_TestScenario_TestCase.xlsx`](./test-case/MovieBox_Test_Cases.xlsx)
+👉 Google Drive: https://drive.google.com/drive/folders/1CGCHEOr_yr-rWG-j68L_jsbC-zRRnYs_?usp=sharing
 
 ---
 
