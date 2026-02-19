@@ -2,6 +2,8 @@ package com.moviebox.pages;
 
 import com.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
@@ -14,6 +16,8 @@ public class LoginPage extends BasePage {
     private final By messageErrorUsername = By.xpath("//input[@name='username']/following-sibling::small");
     private final By messageErrorPassword = By.xpath("//input[@name='password']/following-sibling::small");
 
+
+    private final By buttonLogout = By.xpath("/html/body/nav/div/div/form/button");
 
     public String readingDescriptioPage () {
         return find(descriptionLoginPage).getText();
@@ -33,12 +37,12 @@ public class LoginPage extends BasePage {
         click(buttonLogin);
     }
 
-    public String readingErrorMessageFieldUsername() {
-        return find(messageErrorUsername).getText();
+    public WebElement readingErrorMessageFieldUsername() {
+        return find(messageErrorUsername);
     }
 
-    public String readingErrorMessageFieldPassword () {
-        return find(messageErrorPassword).getText();
+    public WebElement readingErrorMessageFieldPassword () {
+        return find(messageErrorPassword);
     }
 
     public MoviesPage logIntoApplication (String username, String password) {
@@ -48,5 +52,9 @@ public class LoginPage extends BasePage {
 
     }
 
+    public void logoutApplication() {
+        delay(2000);
+        click(buttonLogout);
+    }
 
 }
